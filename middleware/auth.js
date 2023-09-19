@@ -4,7 +4,8 @@ require('dotenv').config()
 const { unAuthenticatedError} = require('../errors/errorsIndex')
 
 const auth = async (req, res, next) =>{
-    const authHeader = req.headers.authorization
+    const authHeader = req.params.authtoken
+    console.log(authHeader)
     if(!authHeader || !authHeader.startsWith('Bearer ')){
         throw new unAuthenticatedError('Authentication Error! Not Authorized')
     }

@@ -17,7 +17,7 @@ router.post('/verify/email', email_verification)
 router.post('/forgotpassword', forgotPassword)
 router.post('/beforeforgot', beforePassword)
 router.post('/register/accountactivation', accountActivation )
-router.post('/login', authMiddleware, login)
+router.post('/login/:authtoken', authMiddleware, login)
 router.post('/user/auth', userAuth)
 router.post('/updateuser',  upload.array('images'), updateUser)
 

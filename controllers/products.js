@@ -86,9 +86,8 @@ const updateProduct = async (req, res, next) => {
       product_quantity,
       product_desc,
       product_category,
- 
-
     } = req.body
+    
     const product = await Product.findOneAndUpdate({ _id: req.params.product_id }, {
       product_name: product_name,
       product_price: product_price,

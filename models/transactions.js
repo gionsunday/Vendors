@@ -28,8 +28,8 @@ const TransactionSchema = new mongoose.Schema({
     },
     product_status: {
         type: String,
-        enum: ['Processing', 'Completed', 'Cancelled'],
-        default: 'Processing'
+        enum: ['Pending', 'Sold', 'Cancelled'],
+        default: 'Pending'
     },
 
     date_sold: {

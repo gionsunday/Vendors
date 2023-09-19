@@ -17,11 +17,11 @@ const upload = multer({dest: '../uploads'})
 
 
 const getProductImage = async (req, res) =>{
-    const profileImage = imgModel.find({uploadedBy:req.params.uploadedBy})
-    .then((image, err) =>{
-        if(err){console.log("can not find image at the moment")}
-        res.json({profileImage})
-    })
+    const profileImage = await imgModel.find({uploadedBy:req.params.uploadedBy})
+    
+    res.status(StatusCodes.OK).json({ profileImage})
+    
+    
 }
 
 const uploadProductImage =async  (req, res, next) =>{

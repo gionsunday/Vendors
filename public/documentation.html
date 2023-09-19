@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> API Documentation</title>
+</head>
+<body>
+    <main class="container" style="padding: 5rem 10rem 5rem 10rem;">
+        <article id="introduction">
+            <div class="intro_header">
+                <h4>Brief Introduction</h4>
+            </div>
+        </article>
+        <article id="createuser">
+            <div class="head">
+               Making a post Request to create a user instance.
+            </div>
+            Request API : 
+            <p>http://localhost:8080/vendor/auth/register</p>
+            <code>
+                Request body: <br>
+                { <br>
+                    "name":"John Sunday", <br>
+                    "email":"richardadaji@gmail.com",<br>
+                    "password":"secret",<br>
+                    "phone":"070865834764",<br>
+                 
+                
+                }
+                <br>
+                result:
+                {message: 'Email has be sent to you, kindly activate your accoutn to continue', "verificationCode"}
+            </code>
+
+        </article>
+    </main>
+    
+</body>
+</html>

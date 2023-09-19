@@ -205,7 +205,7 @@ const userAuth = async (req, res) => {
      throw new unAuthenticatedError('Wrong password!')
  }
     const token = user.createJWT()
-    res.status(StatusCodes.CREATED).json({user, token })
+    res.status(StatusCodes.CREATED).json({token })
 }
 //END USER LOG IN AUTHENTICATION
 
