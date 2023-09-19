@@ -338,12 +338,13 @@ const forgotPassword = async (req,res, next) =>{
 //START USER PROFILE UPDATE
 const updateUser = async (req,res, next) =>{
   
-    const {total_business, total_products, email } = req.body
+    const {total_business, total_products, email, name } = req.body
+    const {userid} = req.params
     const results = []
     const files = req.files
      if(files.length == 0){
-        const user = await User.findOneAndUpdate({email:email}, {
-          
+        const user = await User.findOneAndUpdate({_id:userid}, {
+          name:name,
             total_business:total_business,
             total_products:total_products
        
