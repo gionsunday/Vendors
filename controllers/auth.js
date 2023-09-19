@@ -343,7 +343,7 @@ const updateUser = async (req,res, next) =>{
     const results = []
     const files = req.files
      if(files.length == 0){
-        const user = await User.findOneAndUpdate({_id:userid}, {
+        const user = await User.findOneAndUpdate({_id:req.params.userid}, {
           name:name,
             total_business:total_business,
             total_products:total_products
