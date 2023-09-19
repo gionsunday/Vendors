@@ -343,7 +343,7 @@ const updateUser = async (req,res, next) =>{
     const results = []
     const files = req.files
      if(files.length == 0){
-        const user = await User.findOneAndUpdate({_id:req.params.userid}, {
+        const user = await User.findOneAndUpdate({email:email}, {
           name:name,
             total_business:total_business,
             total_products:total_products
@@ -391,7 +391,7 @@ const updateUser = async (req,res, next) =>{
         crop:"scale"
     })
         results.push(result)
-        const user = await User.findOneAndUpdate({_id:req.params.userid}, {
+        const user = await User.findOneAndUpdate({email:email}, {
          img_url:results[0].secure_url,
          total_business:total_business,
          total_products:total_products
