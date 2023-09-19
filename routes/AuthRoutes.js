@@ -19,7 +19,7 @@ router.post('/beforeforgot', beforePassword)
 router.post('/register/accountactivation', accountActivation )
 router.post('/login/:authtoken', authMiddleware, login)
 router.post('/user/auth', userAuth)
-router.post('/updateuser',  upload.array('images'), updateUser)
+router.post('/updateuser/:userid',  upload.array('images'), updateUser)
 
 
 module.exports = router
