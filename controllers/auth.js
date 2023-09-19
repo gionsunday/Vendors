@@ -391,7 +391,7 @@ const updateUser = async (req,res, next) =>{
         crop:"scale"
     })
         results.push(result)
-        const user = await User.findOneAndUpdate({email:email}, {
+        const user = await User.findOneAndUpdate({_id:req.params.userid}, {
          img_url:results[0].secure_url,
          total_business:total_business,
          total_products:total_products
