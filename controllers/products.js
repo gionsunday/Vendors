@@ -82,6 +82,7 @@ const updateProduct = async (req, res, next) => {
 
     const {
       product_name,
+      email,
       product_price,
       product_quantity,
       product_desc,
@@ -147,7 +148,7 @@ var transporter2 = nodemailer.createTransport({
     console.log(results)
     const {
       product_name,
-  
+       email,
       product_price,
       product_quantity,
       product_desc,
