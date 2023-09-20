@@ -350,6 +350,8 @@ const updatebusiness = async (req, res, next) => {
             width: 200,
             crop: "scale"
         })
+
+        results.push(result)
         const business = await Business.findOneAndUpdate({ _id: req.params.business_id }, {
             name: name,
             img_url: results[0].secure_url,
