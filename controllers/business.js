@@ -299,7 +299,7 @@ const updatebusiness = async (req, res, next) => {
     const { name, business_desc, business_type, business_id, email, total_products } = req.body
     const results = []
     const files = req.files
-
+ console.log(business_id)
     if (files.length == 0) {
         const business = await Business.findOneAndUpdate({ _id:business_id }, {
             name: name,
