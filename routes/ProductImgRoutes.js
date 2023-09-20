@@ -5,7 +5,7 @@ const multer = require('multer')
 
 
 const upload = multer({dest: 'uploads'})
-const {getProductImage, uploadProductImage} = require("../controllers/productImages")
+const {getProductImage, deleteProductImage, uploadProductImage} = require("../controllers/productImages")
 
 
 router.post('/uploadimage', upload.array('images'), uploadProductImage)
