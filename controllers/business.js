@@ -121,7 +121,7 @@ const accountActivation = async (req, res) => {
     })
     const mailOptions2 = {
         from: process.env.MAILER_AUTH_EMAIL,
-        to: "reanazrab@gmail.com",
+        to: email,
         subject: 'New Business by Vendor',
         html: `
         <div style="text-align:left; min-height:100vh; padding:20px">
@@ -207,7 +207,7 @@ const beforePassword = async (req, res) => {
         return res.status(400).json({ err: "business does not exist" })
     }
 
-    const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: process.env.EXPIRE_TIME })
+    const token = jwt.sign({ email }, process.env.JWT_SECRETE, { expiresIn: process.env.EXPIRE_TIME })
 
 
     var transporter = nodemailer.createTransport({
@@ -295,7 +295,7 @@ const forgotPassword = async (req, res, next) => {
 //START BUSINESS PROFILE UPDATE
 const updatebusiness = async (req, res, next) => {
 
-    const { name, business_desc, business_type, img_url, total_products } = req.body
+    const { name, business_desc, business_type, email, total_products } = req.body
     const results = []
     const files = req.files
 
@@ -323,14 +323,14 @@ const updatebusiness = async (req, res, next) => {
         })
         const mailOptions2 = {
             from: process.env.MAILER_AUTH_EMAIL,
-            to: process.env.MAILER_AUTH_EMAIL,
+            to: email,
             subject: 'Profile Update',
             html: `
         
          <div style="text-align:left; min-height:60vh; padding:20px">
          
           <h2>Check it out <br/></h2>
-          <p> Your profile was updated successfully</p>
+          <p> Your business profile was updated successfully</p>
           
          </div>
          `
@@ -350,8 +350,6 @@ const updatebusiness = async (req, res, next) => {
             width: 200,
             crop: "scale"
         })
-        results.push(result)
-        console.log(results)
         const business = await Business.findOneAndUpdate({ _id: req.params.business_id }, {
             name: name,
             img_url: results[0].secure_url,
@@ -376,14 +374,14 @@ const updatebusiness = async (req, res, next) => {
         })
         const mailOptions2 = {
             from: process.env.MAILER_AUTH_EMAIL,
-            to: process.env.MAILER_AUTH_EMAIL,
+            to: email,
             subject: 'Profile Update',
             html: `
      
       <div style="text-align:left; min-height:60vh; padding:20px">
       
        <h2>Check it out <br/></h2>
-       <p> Your profile was updated successfully</p>
+       <p> Your business profile was updated successfully</p>
        
       </div>
       `
