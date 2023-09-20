@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const cloudinary = require('../utils/cloudinary')
 const bcrypt = require('bcryptjs')
 const nodemailer = require('nodemailer')
+const { createCustomError } =  require('../errors/custom-errors')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, unAuthenticatedError } = require('../errors/errorsIndex')
 
