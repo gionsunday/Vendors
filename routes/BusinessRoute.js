@@ -20,6 +20,6 @@ router.post('/accountactivation', accountActivation )
 router.post('/login/:authtoken', authMiddleware, loginBusiness)
 router.delete('/delete/:business_id', deleteBusiness)
 router.post('/dashboard', businessAuth)
-router.put('/updatebusiness', upload.array('images'),updatebusiness)
+router.put('/updatebusiness/:business_id', upload.array('images'),updatebusiness)
 
 module.exports = router
