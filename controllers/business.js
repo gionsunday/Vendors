@@ -312,7 +312,7 @@ const updatebusiness = async (req, res, next) => {
             runValidators: true
         })
         if (!business) {
-            return next(createCustomError(`No task with email found`, 404))
+           return res.status(400).json({err: "Business not found"})
         }
 
         var transporter2 = nodemailer.createTransport({
@@ -365,7 +365,7 @@ const updatebusiness = async (req, res, next) => {
             runValidators: true
         })
         if (!business) {
-            return next(createCustomError(`No task with email found`, 404))
+           return res.status(400).json({err: "Business not Found"})
         }
 
         var transporter2 = nodemailer.createTransport({
