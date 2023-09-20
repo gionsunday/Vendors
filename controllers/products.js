@@ -17,8 +17,8 @@ const getProducts = async (req, res) => {
 
 //START GET ALL PRODUCTS FOR EACH BUSINESS
 const getBusinessProducts = async (req, res) => {
-  const { createdBy } = req.params
-  const products = await Product.find({ createdBy: createdBy })
+  //const { createdBy } = req.params
+  const products = await Product.find({ createdBy: req.params.createdBy })
   res.status(StatusCodes.OK).json({ products })
 }
 //END GET ALL PRODUCTS
@@ -26,8 +26,8 @@ const getBusinessProducts = async (req, res) => {
 
 //START GET SINGLE PRODUCT
 const getSingleProduct = async (req, res) => {
-  const { product_id } = req.params
-  const product = await Product.find({ _id: product_id })
+//  const { product_id } = req.params
+  const product = await Product.find({ _id: req.params.product_id })
   res.status(StatusCodes.OK).json({ product })
 }
 //END GET SINGLE PRODUCT
