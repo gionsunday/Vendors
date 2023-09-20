@@ -40,7 +40,7 @@ const result = await cloudinary.v2.uploader.upload(filepath)
 
 
 const deleteProductImage = async (req, res) =>{
-    const profileImage = imgModel.findOneAndDelete({_id:req.params.img_id})
+    const profileImage = imgModel.findOneAndDelete({_id:req.params.image_id})
     .then((image, err) =>{
         if(err){console.log("can not find image at the moment")}
         res.json({profileImage})
