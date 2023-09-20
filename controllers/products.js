@@ -104,8 +104,36 @@ const updateProduct = async (req, res, next) => {
     if (!product) {
       return next(createCustomError(`Product Not found`, 404))
     }
+var transporter2 = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.MAILER_AUTH_EMAIL,
+        pass: process.env.MAILER_AUTH_PASS
+      }
+    })
+    const mailOptions2 = {
+      from: process.env.MAILER_AUTH_EMAIL,
+      to: email,
+      subject: 'Product Status Update',
+      html: `
+   
+    <div style="text-align:left; min-height:60vh; padding:20px">
+    
+     <h2> Your Product Update <br/></h2>
+     <p>Product Name: ${product_name}</p
+     <p>Product Quantity: ${product_quantity}</p>
+     <p>Product Unit Price: ${product_price}</p
+    </div>
+    `
+    };
+    transporter2.sendMail(mailOptions2, function (error, body) {
+      if (error) {
+        return res.json({ error: error })
+      }
 
-    res.status(StatusCodes.CREATED).json({ msg: "Product Updated", product })
+      res.status(StatusCodes.CREATED).json({ msg: "Product Updated", product })
+    })
+
   }
 
   files.forEach(async (hhh, index) => {
@@ -143,8 +171,36 @@ const updateProduct = async (req, res, next) => {
     if (!product) {
       return next(createCustomError(`Product Not found`, 404))
     }
+var transporter2 = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.MAILER_AUTH_EMAIL,
+        pass: process.env.MAILER_AUTH_PASS
+      }
+    })
+    const mailOptions2 = {
+      from: process.env.MAILER_AUTH_EMAIL,
+      to: email,
+      subject: 'Product Status Update',
+      html: `
+   
+    <div style="text-align:left; min-height:60vh; padding:20px">
+    
+     <h2> Your Producte Update <br/></h2>
+     <p>Product Name: ${product_name}</p
+     <p>Product Quantity: ${product_quantity}</p>
+     <p>Product Unit Price: ${product_price}</p
+    </div>
+    `
+    };
+    transporter2.sendMail(mailOptions2, function (error, body) {
+      if (error) {
+        return res.json({ error: error })
+      }
 
-    res.status(StatusCodes.CREATED).json({ msg: "Product Updated", product })
+      res.status(StatusCodes.CREATED).json({ msg: "Product Updated", product })
+    })
+
 
   })
 }
