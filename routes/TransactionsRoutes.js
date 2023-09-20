@@ -11,7 +11,7 @@ const {
 } = require('../controllers/transactions')
 
 router.route('/create').post(createTransaction)
-router.get('/getall/:business_id', getAllTransaction)
+router.get('/getall/:business_id', getAllTransactions)
 router.get('/getsingle/:transaction_id', getSingleTransaction)
 router.post('/update/:transaction_id', updateTransaction)
 router.post('/delete/:transaction_id', deleteTransaction)
