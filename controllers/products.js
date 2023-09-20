@@ -104,7 +104,8 @@ const updateProduct = async (req, res, next) => {
         runValidators: true
       })
     if (!product) {
-      return next(createCustomError(`Product Not found`, 404))
+   
+           return res.status(400).json({err: "Product not Found"})
     }
 var transporter2 = nodemailer.createTransport({
       service: 'gmail',
@@ -171,7 +172,7 @@ var transporter2 = nodemailer.createTransport({
         runValidators: true
       })
     if (!product) {
-      return next(createCustomError(`Product Not found`, 404))
+           return res.status(400).json({err: "Product Not Found"})
     }
 var transporter2 = nodemailer.createTransport({
       service: 'gmail',
