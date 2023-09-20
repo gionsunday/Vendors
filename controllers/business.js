@@ -296,12 +296,12 @@ const forgotPassword = async (req, res, next) => {
 //START BUSINESS PROFILE UPDATE
 const updatebusiness = async (req, res, next) => {
 
-    const { name, business_desc, business_type, email, total_products } = req.body
+    const { name, business_desc, business_type, business_id, email, total_products } = req.body
     const results = []
     const files = req.files
 
     if (files.length == 0) {
-        const business = await Business.findOneAndUpdate({ _id: req.params.business_id }, {
+        const business = await Business.findOneAndUpdate({ _id:business_id }, {
             name: name,
             business_desc: business_desc,
             business_type: business_type,
@@ -353,7 +353,7 @@ const updatebusiness = async (req, res, next) => {
         })
 
         results.push(result)
-        const business = await Business.findOneAndUpdate({ _id: req.params.business_id }, {
+        const business = await Business.findOneAndUpdate({ _id:business_id }, {
             name: name,
             img_url: results[0].secure_url,
             business_desc: business_desc,
