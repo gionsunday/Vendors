@@ -8,14 +8,14 @@ const Transaction = require('../models/transactions')
 
 //GET ALL TRANSACTION
 const getAllTransactions = async (req, res) => {
-  const transactions = await Transaction.find({ business_id:req.body.business_id }).sort()
+  const transactions = await Transaction.find({ business_id:req.params.business_id }).sort()
   res.status(StatusCodes.OK).json({ transactions, count: transactions.length })
 }
 //END GET ALL TRANSACTION
 
 ///GET SINGLE TRANSACTION
 const getSingleTransaction = async (req, res) => {
-  const transaction = await Transaction.find({ _id: req.body.transaction_id })
+  const transaction = await Transaction.find({ _id: req.params.transaction_id })
   res.status(StatusCodes.OK).json({ transaction, })
 }
 //END GET SINGLE TRANSACTION
