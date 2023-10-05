@@ -18,15 +18,12 @@ $(document).ready(()=>{
      
             console.log("Bearer " + token)
 
-            const __data = await axios.post('/vendor/auth/login',{
+            const __data = await axios.post(`/vendor/auth/login/${token}`,{
                 email:email.val(),
                 password:pass.val(),
-                Headers:{
-                     "Authorization" : "Bearer john sunday" 
-                },
-
+                
             })
-            window.location = 'home.html'
+            
         }catch(error){
 
 
